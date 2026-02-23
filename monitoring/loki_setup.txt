@@ -1,0 +1,56 @@
+Loki Monitoring Setup Guide
+DevOps Intern Final Project
+
+Overview:
+Loki is a log aggregation system developed by Grafana. It collects and stores logs from applications and containers.
+
+Purpose in this project:
+To demonstrate log monitoring and observability in a DevOps workflow.
+
+Step 1: Install Loki using Docker
+
+Command:
+docker run -d --name loki -p 3100:3100 grafana/loki:latest
+
+Step 2: Verify Loki is running
+
+Open browser:
+http://localhost:3100
+
+Expected output:
+"Loki is ready"
+
+Step 3: Install Promtail (log collector)
+
+Command:
+docker run -d --name promtail grafana/promtail:latest
+
+Step 4: Configure Promtail
+
+Promtail collects logs from:
+
+• Docker containers
+• Linux system logs
+• Application logs
+
+Step 5: View logs using Grafana
+
+Install Grafana:
+
+docker run -d -p 3000:3000 grafana/grafana
+
+Open:
+http://localhost:3000
+
+Default login:
+username: admin
+password: admin
+
+Add Loki as Data Source:
+URL: http://localhost:3100
+
+Result:
+You can monitor logs from containers and applications.
+
+Conclusion:
+This setup demonstrates monitoring and observability skills using Loki, which is an essential part of modern DevOps workflows.
